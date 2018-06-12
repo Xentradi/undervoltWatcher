@@ -2,6 +2,9 @@
 
 ### Ensure undervolt offsets are always applied.
 
+This is just a watcher tool for undervolt.
+*Get undervolt here: [https://github.com/georgewhewell/undervolt](https://github.com/georgewhewell/undervolt)*
+
 Uses systemd service to automatically check the current undervolt offsets and re-apply them as needed. 
 
 _Code is quick and dirty works for me, might not work for you. Feel free to let me know or just fix it yourself, it's pretty basic.  -Cheers, Xen_
