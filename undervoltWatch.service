@@ -1,0 +1,13 @@
+[Unit]
+Description=undervoltWatch
+
+[Service]
+Type=forking
+RemainAfterExit=true
+ExecStart=/usr/bin/sudo /usr/bin/undervoltWatch
+PIDFile=/var/run/undervoltWatch.pid
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

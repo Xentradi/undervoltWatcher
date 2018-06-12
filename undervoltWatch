@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo $BASHPID > /var/run/undervoltWatch.pid
+
+# Change these values to desired offsets
+iCoreOffset=-110 # value used for core and cache as they should be the same
+iGpuOffset=-75
+iTargetTemp=70
+
+
+while true
+do 
+	sCurrentCoreOffset=$(/usr/bin/sudo undervolt -r | grep -m 1 core: )
+	if [ "$sCurrentCoreOffset" == "core: 0.0 mV" ]; then
+		echo UV not applied. Applying now...
+		/usr/bin/sudo undervolt --core $iCoreOffset --cache $iCoreOffset --gpu $iGpuOffset --temp $iTargetTemp
+		sCurrentCoreOffset=$(/usr/bin/sudo undervolt -r | grep -m 1 core: )
+		if [ "$sCurrentCoreOffset" == "core: 0.0 mV" ]; then
+			echo UV failed to apply.
+		else 
+			echo UV applied.
+		fi
+	#else
+		#echo UV already applied.
+	fi
+
+	sleep 5
+done
