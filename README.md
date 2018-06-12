@@ -12,10 +12,11 @@ _Code is quick and dirty works for me, might not work for you. Feel free to let 
 *You MUST change the offsets in 'undervoltWatch' prior to running `sudo ./install.sh` to suit your system. Failure to do so could result in an unstable system and potential damage to your hardware.*
 
 1. `git clone https://gitlab.com/xentradi/undervoltWatcher.git`
-2. Edit the offset and target temperature values in 'undervoltWatch'
-3. `sudo chmod +x ./install.sh`
-4. `sudo ./install.sh`
-5. Start the service with `sudo systemctl start undervoltWatch.service`
+2. `cd undervoltWatcher`
+3. Edit the offset and target temperature values in 'undervoltWatch'
+4. `sudo chmod +x ./install.sh`
+5. `sudo ./install.sh`
+6. Start the service with `sudo systemctl start undervoltWatch.service`
 
 #### To uninstall:
 
