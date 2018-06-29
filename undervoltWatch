@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo $BASHPID > /var/run/undervoltWatch.pid
-systemd-notify --ready 
+
+killall -q undervoltWatch
+while pgrep -u $UID -x undervoltWatch >/dev/null; do sleep 1; done
 
 # Change these values to desired offsets
 
